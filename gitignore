@@ -1,0 +1,15 @@
+__pycache__/
+
+*.h5
+*.keras
+*.pkl
+
+.ipynb_checkpoints/
+
+.env
+
+saved_models/
+
+data/
+
+.DS_Store

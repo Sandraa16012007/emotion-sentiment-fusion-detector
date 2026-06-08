@@ -38,10 +38,15 @@ A multimodal machine learning project that combines:
   - One-hot encoding
   - Train/Validation/Test split
   - Data augmentation
+  - CNN implementation from scratch
+  - Baseline CNN training
+  - Emotion classification evaluation
 
-### Next Steps
+## Baseline Results
 
-- CNN architecture design
-- CNN training
-- Feature map visualization
-- Emotion classifier evaluation
+- Train Accuracy: 71.25%
+- Validation Accuracy: 56.04%
+- Test Accuracy: 56.56%
+
+Key Finding:
+Model performs well on happy and surprise but struggles on minority classes such as disgust.

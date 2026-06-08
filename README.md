@@ -24,7 +24,24 @@ A multimodal machine learning project that combines:
 - Binary sentiment classification
 - 25,000 training reviews
 
-## Current Progress
+## Progress
 
-- Dataset collection completed
-- Exploratory Data Analysis completed
+### Completed
+
+- Dataset acquisition
+- FER2013 exploration
+- IMDb exploration
+- CNN preprocessing pipeline
+  - Image loading
+  - Label encoding
+  - Normalization
+  - One-hot encoding
+  - Train/Validation/Test split
+  - Data augmentation
+
+### Next Steps
+
+- CNN architecture design
+- CNN training
+- Feature map visualization
+- Emotion classifier evaluation

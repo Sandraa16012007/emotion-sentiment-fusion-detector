@@ -4,11 +4,21 @@ import joblib
 import cv2
 import numpy as np
 
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import UploadFile, File
 from fastapi import Form
 
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Load models on startup
 
@@ -151,12 +161,12 @@ async def predict_emotion(
 
     confidence = float(probs[pred_idx])
 
-    if confidence < 0.50:
-        emotion = "uncertain"
+    is_uncertain = confidence < 0.50
 
     return {
         "emotion": emotion,
         "confidence": confidence,
+        "is_uncertain": is_uncertain,
         "all_probs": {
             emotion_labels[i]: float(probs[i])
             for i in range(len(emotion_labels))
@@ -214,16 +224,13 @@ async def predict_multimodal(
         emotion_probs
     )
 
-    emotion = emotion_labels[
-        emotion_idx
-    ]
+    emotion = emotion_labels[emotion_idx]
 
     emotion_conf = float(
         emotion_probs[emotion_idx]
     )
 
-    if emotion_conf < 0.50:
-        emotion = "uncertain"
+    is_uncertain = emotion_conf < 0.50
 
     # Sentiment
 
@@ -247,14 +254,10 @@ async def predict_multimodal(
         emotion
     )
 
-    mismatch = False
-
-    if emotion != "uncertain":
-
-        mismatch = (
-            emotion_sentiment
-            != sentiment
-        )
+    mismatch = (
+        emotion_sentiment
+        != sentiment
+    )
 
     fusion_confidence = round(
         (emotion_conf + 1.0) / 2,
@@ -264,6 +267,13 @@ async def predict_multimodal(
     return {
 
         "emotion": emotion,
+
+        "emotion_confidence": round(
+            emotion_conf,
+            3
+        ),
+
+        "emotion_uncertain": is_uncertain,
 
         "sentiment": sentiment,
 

@@ -1,5 +1,11 @@
 __pycache__/
 
+# Byte-compiled / optimized / DLL progress
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
 *.h5
 *.keras
 *.pkl

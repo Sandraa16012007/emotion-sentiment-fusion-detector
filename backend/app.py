@@ -3,6 +3,7 @@ import tensorflow as tf
 import joblib
 import cv2
 import numpy as np
+import os 
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import UploadFile, File
@@ -13,7 +14,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000"
+        os.getenv("ALLOWED_ORIGIN")
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -49,6 +50,11 @@ SENTIMENT_MAP = {
     0: "negative"
 }
 
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy"
+    }
 
 @app.get("/")
 def home():
@@ -143,6 +149,11 @@ def preprocess_image(image_bytes):
 async def predict_emotion(
     file: UploadFile = File(...)
 ):
+    
+    if not file.content_type.startswith("image/"):
+        return {
+            "error": "Invalid file type"
+        }
 
     image_bytes = await file.read()
 

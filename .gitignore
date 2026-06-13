@@ -1,0 +1,40 @@
+saved_models/
+
+data/
+
+# Python
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environments
+backend/venv/
+venv/
+.venv/
+env/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Next.js
+
+frontend/.next/
+frontend/node_modules/
+
+# Environment Variables
+
+.env
+.env.local
+.env.production
+
+# Uploads
+
+backend/uploads/
+
+# OS
+
+.DS_Store
+Thumbs.db

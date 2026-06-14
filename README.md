@@ -378,25 +378,19 @@ Response:
 
 ## Home Page
 
-[Insert Screenshot Here]
-
----
-
-## Upload Interface
-
-[Insert Screenshot Here]
+<img width="1478" height="822" alt="image" src="https://github.com/user-attachments/assets/c4e40677-1333-4af9-9a34-e3cbbe08e066" />
 
 ---
 
 ## Prediction Results
 
-[Insert Screenshot Here]
+<img width="677" height="817" alt="image" src="https://github.com/user-attachments/assets/ed8726c2-339b-42ee-8ab0-155a8e45fbd6" />
 
 ---
 
 ## API Documentation
 
-[Insert Screenshot Here]
+<img width="1868" height="850" alt="image" src="https://github.com/user-attachments/assets/5320a7d4-6e64-444a-a603-3636c3a23b14" />
 
 ---
 

@@ -38,16 +38,6 @@ The final system determines:
 
 ---
 
-# Motivation
-
-Most sentiment analysis systems focus exclusively on text, while emotion recognition systems focus only on images.
-
-In real-world communication, both signals contribute to emotional understanding.
-
-This project was built to investigate whether combining these modalities can provide richer emotional insights than either modality alone.
-
----
-
 # Features
 
 ## Facial Emotion Recognition
